@@ -28,4 +28,4 @@ dotnet run
 
 ## Potrebné k spusteniu
 1. [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
-2. [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+2. [SQL Server](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
