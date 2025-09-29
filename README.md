@@ -15,8 +15,17 @@ cd ProfileEditor
 ### 2. Databáza
   1. v SQL Server Management Studio 20 vytvor novú databázu
   2. Nastav pripojenie k databáze v appsettings.json
-  3. Rebuild, spustenie migrácií
+  3. Rebuild projektu a spustenie migrácií
 ```bash
+dotnet clean
+dotnet build
 dotnet ef database update
 ```
 ### 3. Spustenie aplikácie
+```bash
+dotnet run
+```
+
+## Potrebné k spusteniu
+1. [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
+2. [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
