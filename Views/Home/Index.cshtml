@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="notification-tempdata">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="text-center container">
+    <div class="home-content">
+        <h2>AdosCode</h2>
+        <h1>Welcome</h1>
+        <h3>This is a simple website to create your own profile</h3>
+    </div>
+</div>

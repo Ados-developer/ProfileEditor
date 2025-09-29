@@ -1,0 +1,37 @@
+﻿<header class="header-area header_bg" id="sticky-header">
+	<nav class="navbar">
+		<div class="container">
+			<div class="logo">
+				<a class="active-sticky2" asp-action="Index" asp-controller="Home"><img src="~/media/LogoAdosCode.png" alt="logo img"></a>
+				<a class="active-sticky" asp-action="Index" asp-controller="Home"><img src="/media/LogoAdosCodeMobile.png" alt="logo img"></a>
+			</div>
+
+			@* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+					aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars" id="menu-icon"></i>
+			</button> *@
+            <div class="justify-content-end header-menu" id="navbar">
+                <ul class="navbar-nav d-flex flex-row text-center align-items-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Profile" asp-action="Profile"><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline" id="signout-form">
+                                <button type="submit"><i class="fas fa-sign-out-alt"></i></button>
+                                @* <a href="#" onclick="document.getElementById('signout-form').submit()"><i class="fas fa-sign-out-alt"></i></a> *@
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Login"><i class="fas fa-sign-in-alt"></i></a>
+                        </li>
+                    }
+                </ul>
+            </div>
+		</div>
+	</nav>
+</header>

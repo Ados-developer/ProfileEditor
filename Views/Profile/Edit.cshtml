@@ -1,0 +1,125 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+<div class="profile-area">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title text-center">
+                <div class="section-sub-title">
+                    <h4>Edit</h4>
+                </div>
+                <div class="em_bar_bg"></div>
+                <div class="section-main-title">
+                    <h1>Edit Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="mb-3 position-relative">
+            @if (!string.IsNullOrEmpty(Model.PhotoImageName))
+            {
+                <div class="position-relative d-inline-block">
+                    <img src="~/uploads/@Model.PhotoImageName" alt="Avatar" id="currentPhoto" />
+                </div>
+            }
+            <input asp-for="PhotoImage" type="file" class="form-file"/>
+        </div>
+
+        <div class="form-check-div">
+            <input asp-for="UseDefaultPhoto" class="fcheck-input" type="checkbox" id="useDefaultPhoto" />
+            <label class="fcheck-label" for="useDefaultPhoto">
+                Use a default picture
+            </label>
+        </div>
+        <div class="row centered">
+            <div class="col-lg-4 col-md-6 text-center">
+                <div class="form-item">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" readonly />
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" readonly />
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="ContactNumber"></label>
+                    <input asp-for="ContactNumber" />
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="form-item">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName"/>
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName"/>
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="Age"></label>
+                    <input asp-for="Age"/>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="form-item">
+                    <label asp-for="Adress"></label>
+                    <input asp-for="Adress"/>
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="City"></label>
+                    <input asp-for="City"/>
+                </div>
+
+                <div class="form-item">
+                    <label asp-for="Country"></label>
+                    <input asp-for="Country"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-item">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description"></textarea>
+            </div>
+        </div>
+        <div class="buttons-div">
+            <div class="form-button">
+                <button type="submit">Save</button>
+            </div>
+            <div class="hero-button">
+                <a asp-action="Profile" asp-controller="Profile">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    const checkbox = document.getElementById('useDefaultPhoto');
+    const fileInput = document.getElementById('PhotoImage');
+    const currentPhoto = document.getElementById('currentPhoto');
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            fileInput.disabled = true;
+            // Zobraz default obrázok
+            currentPhoto.src = '/uploads/default.png';
+            // Vymaže vybraný súbor (ak bol)
+            fileInput.value = '';
+        } else {
+            fileInput.disabled = false;
+            // Zobraz pôvodnú fotku (Model.PhotoImageName)
+            currentPhoto.src = '/uploads/@Model.PhotoImageName';
+        }
+    });
+</script>
+

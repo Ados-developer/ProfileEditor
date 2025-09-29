@@ -1,0 +1,70 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profil";
+}
+<div class="profile-area">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title text-center">
+                <div class="section-sub-title">
+                    <h4>PROFILE</h4>
+                </div>
+                <div class="em_bar_bg"></div>
+                <div class="section-main-title">
+                    <h1>@Model.UserName</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="notification-tempdata">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (Model.PhotoImageName != null)
+    {
+        <img src="~/uploads/@Model.PhotoImageName" alt="Avatar" />
+    }
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="profile-info">
+                <ul>
+                    <li><p><strong>Username:</strong> @Model.UserName</p></li>
+                    <li><p><strong>Email:</strong> @Model.Email</p></li>
+                    <li><p><strong>Phone Number:</strong> @Model.ContactNumber</p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="profile-info">
+                <ul>
+                    <li><p><strong>First name:</strong> @Model.FirstName</p></li>
+                    <li><p><strong>Last name:</strong> @Model.LastName</p></li>
+                    <li><p><strong>Age:</strong> @Model.Age</p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 text-center">
+            <div class="profile-info">
+                <ul>
+                    <li><p><strong>Adress:</strong> @Model.Adress</p></li>
+                    <li><p><strong>City:</strong> @Model.City</p></li>
+                    <li><p><strong>Country:</strong> @Model.Country</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="profile-description">
+        <p><strong>@Model.Description</strong></p>
+    </div>
+    <div class="hero-button">
+        <a asp-action="Edit">Edit profile</a>
+        <a asp-action="Delete" asp-controller="Account" class="danger-button">Delete account</a>
+        <a asp-action="ChangePassword" asp-controller="Account">Change password</a>
+    </div>
+</div>
+
+
+
