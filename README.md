@@ -9,5 +9,5 @@ Používa **.NET 8**, **Entity Framework Core** a **SQL Server**.
 
 ### 1. Klonovanie repozitára
 ```bash
-git clone https://github.com/<tvoje-repo>.git
-cd <tvoje-repo>
+git clone https://github.com/Ados-developer/ProfileEditor.git
+cd ProfileEditor
