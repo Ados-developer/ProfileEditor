@@ -19,8 +19,14 @@
     </div>
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="notification-tempdata">
+        <div class="notification-succes">
             @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="notification-error">
+            @TempData["ErrorMessage"]
         </div>
     }
     @if (Model.PhotoImageName != null)
@@ -65,6 +71,13 @@
         <a asp-action="ChangePassword" asp-controller="Account">Change password</a>
     </div>
 </div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="hero-button">
+        <a asp-action="GetRecords" asp-controller="Admin">List of Users</a>
+    </div>
+}
 
 
 

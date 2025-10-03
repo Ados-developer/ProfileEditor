@@ -447,6 +447,15 @@ input[type="file"]::file-selector-button:hover {
 .form-item input:focus {
     border:1px solid var(--color-green);
 }
+.form-item-checkbox {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#RememberMe{
+    width:20px;
+    margin: 0 20px 0 0;
+}
 .row.centered {
     display: flex;
     justify-content:center;
@@ -688,13 +697,25 @@ input[type="file"]::file-selector-button:hover {
         align-items:center;
     }
 
-    .notification-tempdata {
+    .notification-succes {
         text-align:center;
         padding:10px 10px;
         background-color:var(--color-green);
         color:var(--color-white);
     }
+.notification-error {
+    text-align: center;
+    padding: 10px 10px;
+    background-color: var(--color-reddanger);
+    color: var(--color-white);
+}
     .validation-summary-errors ul{
         list-style:none;
         text-align:center;
+    }
+    .table thead {
+        color:var(--color-green);
+    }
+    .table tbody {
+        color:var(--color-white);
     }

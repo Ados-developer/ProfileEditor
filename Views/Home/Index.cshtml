@@ -3,8 +3,14 @@
 }
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="notification-tempdata">
+    <div class="notification-succes">
         @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="notification-error">
+        @TempData["ErrorMessage"]
     </div>
 }
 

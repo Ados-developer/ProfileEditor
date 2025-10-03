@@ -30,6 +30,10 @@
             <input asp-for="Password" type="password" placeholder="Password" />
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
+        <div class="form-item form-item-checkbox">
+            <input asp-for="RememberMe" type="checkbox" />
+            <label asp-for="RememberMe">Remember Me</label>
+        </div>
 
         <div class="form-button">
             <button type="submit">Login</button>
